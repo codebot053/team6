@@ -10,7 +10,7 @@ team sixsens project
 
 2022년 01월 26일 ~ 2022년 02월 08일
 
-🧙 맴버구성 & 파트
+🧙 멤버구성 & 파트
 
 Front-end : 
 
