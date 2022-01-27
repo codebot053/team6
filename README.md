@@ -36,7 +36,7 @@ Common : Github, Slack, Notion
 
 수집 대상 : 
 
-수집 출처 : 
+수집 출처 : 구글 지도, 인스타그램
 
 (2) Data Preprocessing
 
