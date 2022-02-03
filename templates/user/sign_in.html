@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Sign_in</title>
+    <link
+            href="./common.css"
+            rel="stylesheet" type="text/css"
+    />
+    <link
+            href="./signin.css"
+            rel="stylesheet" type="text/css"
+    />
+    <link href="https://fonts.googleapis.com/css2?family=Gamja+Flower&family=Rock+3D&display=swap" rel="stylesheet">
+
+    <script src="./sign.js">
+    </script>
+
+  </head>
+  <body>
+    <div class="container">
+      <div class="logo">Travel Alone</div>
+      <input type="text" class="input_sign_in" name="userID" id="userID" placeholder="ID">
+      <input type="password" class="input_sign_in" name="userPW" id="userPW" placeholder="PW">
+      <a href="#none"><button id="btn_sign_in" disabled>Sign in</button></a>
+      <span class="button_forgot" onclick="location.href='sign_up.html'">비밀번호를 잊으셨나요?</span>
+    </div>
+    <script src="js/sign_in.js"></script>
+  </body>
+</html>
