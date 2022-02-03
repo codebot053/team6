@@ -11,7 +11,7 @@ def sign_up_view(request):
         if user:
             return redirect('/')
         else:
-            return render(request, 'user/signup.html')
+            return render(request, 'user/sign_up.html')
     elif request.method == 'POST':
         # id는 db에 username으로 저장됨
         username = request.POST.get('id', '')
@@ -54,7 +54,7 @@ def sign_in_view(request):
         if user:
             return redirect('/')
         else:
-            return render(request, 'user/signin.html')
+            return render(request, 'user/sign_in.html')
 
 @login_required
 def logout(request):

@@ -7,12 +7,12 @@ from django.views.generic import ListView, TemplateView
 def home(request):
     user = request.user.is_authenticated
     if user:
-        return
+        return redirect('/info')
     else:
-        return
+        return render(request, 'user/home.html')
 
 def place(request):
-    return
+    return render(request, 'place/place_main.html')
 
 @login_required
 def delete_place(request):
