@@ -1,4 +1,3 @@
-from xml.etree.ElementTree import Comment
 from django.shortcuts import render, redirect
 from .models import PlaceModel, PlaceComment
 from django.contrib.auth.decorators import login_required
