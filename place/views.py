@@ -15,7 +15,7 @@ def place(request):
     if request.method == 'GET':
         user = request.user.is_authenticated
         if user:
-            # 이곳에 모델을 넣어서 추천 장소를 불러옴
+            # 이곳에 추천모델을 넣어서 추천 장소를 불러옴
             # 
             # 
             # 
@@ -35,6 +35,9 @@ def delete_place(request, id):
 def detail_place(request, id):
     place_detail = PlaceModel.objects.get(id=id)
     place_comment = PlaceComment.objects.filter(place_id=id).order_by('-created_at')
+
+    # 만약 세부정보페이지에서 다른 장소도 추천한다면 추천모델 필요
+
     return render(request, 'place/place_detail.html', {'place':place_detail, 'comment':place_comment})
 
 
