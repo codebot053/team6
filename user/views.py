@@ -20,19 +20,20 @@ def sign_up_view(request):
         password2 = request.POST.get('password2', '')
         # 이름은 first_name에 저장함
         name = request.POST.get('name', '')
+        email = request.POST.get('email','')
 
         if password != password2:
             # password다르다고알람
-            return render(request, 'user/signup.html', {'error':'패스워드를 확인해주세요!'})
+            return render(request, 'user/sign_up.html', {'error':'패스워드를 확인해주세요!'})
         else:
             if username == '' or password == '':
-                return render(request, 'user/signup.html', {'error':'사용자이름과 패스워드는 필수입니다!'})
+                return render(request, 'user/sign_up.html', {'error':'사용자이름과 패스워드는 필수입니다!'})
 
             exist_user = get_user_model().objects.filter(username=username)
             if exist_user:
-                return render(request, 'user/signup.html', {'error':'사용자가 존재합니다!'})
+                return render(request, 'user/sign_up.html', {'error':'사용자가 존재합니다!'})
             else:
-                UserModel.objects.create_user(username=username, password=password, first_name=name)
+                UserModel.objects.create_user(username=username, password=password, first_name=name, email=email)
                 return redirect('/sign-in')
 
 
@@ -47,7 +48,7 @@ def sign_in_view(request):
             auth.login(request, me)
             return redirect('/')
         else:
-            return render(request, 'user/signin.html', {'error':'유저이름 혹은 패스워드를 확인해주세요!'})
+            return render(request, 'user/sign_in.html', {'error':'유저이름 혹은 패스워드를 확인해주세요!'})
         
     elif request.method == "GET":
         user = request.user.is_authenticated
