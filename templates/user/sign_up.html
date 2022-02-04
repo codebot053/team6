@@ -22,12 +22,38 @@
   <body>
     <div class="container">
       <div class="logo">Travel Alone</div>
-      <input type="text" class="input_sign_up" name="userName" id="userName" placeholder="Name">
-      <input type="text" class="input_sign_up" name="userEmail" id="userEmail" placeholder="Email">
-      <input type="text" class="input_sign_up" name="userID" id="userID" placeholder="ID">
-      <input type="password" class="input_sign_up" name="userPW" id="userPW" placeholder="PW">
-      <a href="#none"><button id="btn_sign_up" disabled>Sign up</button></a>
-      <span class="ReturnToMain" onclick="location.href='/'">처음으로 돌아가기</span>
+
+        <div class="form-wrap">
+            <form class="form-area" method="post" action="/sign-up/">
+                {% csrf_token %}
+                <div>
+                    <label for="userName">이름</label>
+                    <input type="text" class="input_sign_up" name="userName" id="userName" placeholder="Name">
+                </div>
+                <div>
+                    <label for="userEmail">이메일</label>
+                    <input type="text" class="input_sign_up" name="userEmail" id="userEmail" placeholder="Email">
+                </div>
+                <div>
+                    <label for="userID">아이디</label>
+                    <input type="text" class="input_sign_up" name="userID" id="userID" placeholder="ID">
+                </div>
+                <div>
+                    <label for="userPW">password</label>
+                    <input type="password" class="input_sign_up" name="userPW" id="userPW" placeholder="PW">
+                </div>
+                <div>
+                    <label for="userPW2">password2</label>
+                    <input type="password" class="input_sign_up" name="userPW2" id="userPW2" placeholder="PW2">
+                </div>
+
+                    <button type="submit" id="btn_sign_up" >회원가입</button>
+                
+                <hr>
+                <hr>
+                <span class="ReturnToMain" onclick="location.href='/'">처음으로 돌아가기</span>
+            </form>
+        </div>
     </div>
     <script src="js/sign_up.js"></script>
   </body>
