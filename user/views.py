@@ -14,14 +14,14 @@ def sign_up_view(request):
             return render(request, 'user/sign_up.html')
     elif request.method == 'POST':
         # id는 db에 username으로 저장됨
-        username = request.POST.get('id', '')
+        username = request.POST.get('userID', '')
         # 와이어프레임과달리 패스워드 확인이필요
-        password = request.POST.get('password', '')
-        password2 = request.POST.get('password2', '')
+        password = request.POST.get('userPW', '')
+        password2 = request.POST.get('userPW2', '')
         # 이름은 first_name에 저장함
-        name = request.POST.get('name', '')
-        email = request.POST.get('email','')
-
+        name = request.POST.get('userName', '')
+        email = request.POST.get('userEmail','')
+        
         if password != password2:
             # password다르다고알람
             return render(request, 'user/sign_up.html', {'error':'패스워드를 확인해주세요!'})
