@@ -7,12 +7,20 @@ django.setup()
 
 from place.models import PlaceModel
 
-def makedb(name, tags, img, url):
+def makedb(name, tag_list, img, url):
     PM = PlaceModel()
     PM.name = name
-    PM.tags = tags
+    for tag in tag_list:
+        PM.tags.add(tag)
     PM.images = img
     PM.address = url
+    PM.save()
+
+def updatetags(id, tag_list):
+    PM = PlaceModel.objects.get(id=id)
+    PM.tags.clear()
+    for tag in tag_list:
+        PM.tags.add(tag)
     PM.save()
 
 placeinfo = open("place_with_images.csv", "r", encoding="utf-8-sig")
@@ -20,10 +28,11 @@ reader = csv.reader(placeinfo)
 
 if __name__=='__main__':
     for line in reader:
+        id = int(line[1])+10
         name = line[2].lstrip()
         tag_list = line[3].split(' • ')
-        tags = ",".join(tag_list)
         img = line[5]
         url = line[4]
-        makedb(name, tags, img, url)
-        print(name, tags, img, url)
+        makedb(name, tag_list, img, url)
+        # updatetags(id, tag_list)
+        print(tag_list)
