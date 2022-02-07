@@ -61,3 +61,7 @@ def delete_comment(request, id):
     current_place = comment.place.id
     comment.delete()
     return redirect('/info/'+str(current_place))
+
+@login_required
+def connect(request):
+    return render(request, 'place_connect.html')
