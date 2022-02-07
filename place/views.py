@@ -64,4 +64,4 @@ def delete_comment(request, id):
 
 @login_required
 def connect(request):
-    return render(request, 'place_connect.html')
+    return render(request, 'place/place_connect.html')
