@@ -8,8 +8,8 @@ class PlaceModel(models.Model):
         db_table = "place"
 
     name = models.CharField(max_length=256)
-    address = models.CharField(max_length=256)
-    desc = models.CharField(max_length=256)
+    address = models.CharField(max_length=256, blank=True, null=True)
+    desc = models.CharField(max_length=256, blank=True, null=True)
     tags = TaggableManager(blank=True)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
