@@ -1,5 +1,4 @@
 from django.db import models
-from django.forms import CharField, DateTimeField, FloatField
 from user.models import UserModel
 from taggit.managers import TaggableManager
 
@@ -14,6 +13,7 @@ class PlaceModel(models.Model):
     tags = TaggableManager(blank=True)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
+    images = models.ImageField(upload_to='imgs/', blank=True, null=True)
     
 class PlaceComment(models.Model):
     class Meta:

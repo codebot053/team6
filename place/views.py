@@ -16,11 +16,9 @@ def place(request):
         user = request.user.is_authenticated
         if user:
             # 이곳에 추천모델을 넣어서 추천 장소를 불러옴
+            place_list = PlaceModel.objects.all()
             # 
-            # 
-            # 
-            # 
-            return render(request, 'place/place_main.html')
+            return render(request, 'place/place_main.html', {'place_list':place_list})
         else:
             return redirect('/')
 
