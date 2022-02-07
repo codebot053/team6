@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Connect</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Gamja+Flower&family=Rock+3D&display=swap" rel="stylesheet">
+
+    <script src="index.js">
+    </script>
+    <style>
+        .logo {
+            font-family: 'Rock 3D', cursive;
+            font-size: 40px;
+            font-weight: bold;
+            color: black;
+            display: flex;
+            align-items: center;
+            max-width: 200px;
+            margin: 100px auto 100px;
+            text-align: center;
+            /*background-color: #fafafa;*/
+        }
+
+        p {
+            font-family: 'Gamja Flower', cursive;
+            align-self: center;
+            font-size: 15px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <div id="nav_bar_top"><!--상단 네비게이션바-->
+        <img src="" alt="logo">
+        <a class="nav-link" href="/logout"> 로그아웃 </a>
+    </div>
+    <div class="logo">Travel Alone</div>
+    <div id="main">
+
+
+        <div id="tag_bar"><!--상단 tag-->
+            <p class="tag"><a href="#">#ex</a></p>
+        </div>
+        <div id="img_wrapper"><!--이미지 래퍼-->
+            <div class="img_block"><!--이미지 들어가는 칸-->
+                <img src="" alt="img">
+                <div class="tag_bar_sub"><!--이미지내부 tag-->
+
+                </div>
+
+                <div class="button_sign">
+                    <button type="button" class="btn_trip" onclick="location.href='https://www.tripadvisor.co.kr/Tourism-g983296-Jeju_Island-Vacations.html'">Tripadvisor에서 둘러보기</button><br>
+                    <button type="button" class="btn_back" onclick="location.href='http://127.0.0.1:8000/'">뒤로가기</button>
+                </div>
+            </div>
+            <div id="nav_bar_bottom">
+
+            </div>
+        </div>
+</body>
+</html>
