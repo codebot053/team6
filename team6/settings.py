@@ -45,7 +45,7 @@ INSTALLED_APPS = [
     'user',
     'place',
     'storages',
-    'taggit.apps.TaggitAppConfig',
+    'taggit',
     'taggit_templatetags2',
 ]
 
