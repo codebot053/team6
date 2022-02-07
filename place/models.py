@@ -13,7 +13,7 @@ class PlaceModel(models.Model):
     tags = TaggableManager(blank=True)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
-    images = models.ImageField(upload_to='imgs/', blank=True, null=True)
+    images = models.CharField(max_length=256, blank=True, null=True)
     
 class PlaceComment(models.Model):
     class Meta:
