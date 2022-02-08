@@ -153,7 +153,7 @@
             {% for i in recommend_list %}
                 <div class="place_item"><!--이미지 들어가는 칸-->
                     <a href="/info/{{ i.id }}">
-                        <img src="{{ i.images }}" alt="img">
+                        <img src="{{ i.images }}" alt="img" onerror="this.src='/static/white.png'">
                         <p>{{ i.name }}</p>
                     </a>
                 </div>
@@ -172,7 +172,7 @@
             {% for i in popular_list %}
                 <div class="place_item"><!--이미지 들어가는 칸-->
                     <a href="/info/{{ i.id }}">
-                        <img src="{{ i.images }}" alt="img">
+                        <img src="{{ i.images }}" alt="img" onerror="this.src='/static/white.png'">
                         <p>{{ i.name }}</p>
                     </a>
                 </div>
@@ -181,28 +181,37 @@
         <hr><!--임시공백-->
     </div><!--tag별 여행지 리스트 끝-->
 
-    <div class="tag_bar"><!--tag별 여행지 리스트-->
+    {% for p_tag in prefer_tags %}
+    <div class="tag_bar for"><!--tag별 여행지 리스트-->
         <hr><!--임시공백-->
         <div class="tag_item">
-            <p class="tag">#인기</p>
+            <p class="tag"></p>
         </div>
-
         <div class="place_item_wrapper">
-            {% for i in popular_list %}
+            {% for i in p_tag %}
                 <div class="place_item"><!--이미지 들어가는 칸-->
                     <a href="/info/{{ i.id }}">
-                        <img src="{{ i.images }}" alt="img">
+                        <img src="{{ i.images }}" alt="img" onerror="this.src='/static/white.png'">
                         <p>{{ i.name }}</p>
                     </a>
                 </div>
             {% endfor %}
         </div>
         <hr><!--임시공백-->
-    </div><!--tag별 여행지 리스트 끝-->
-
-
-    <div id="nav_bar_bottom"><!--하단 내비게이션-->
     </div>
+    {% endfor %}
+
 </div>
+<script>
+    const tags = document.querySelectorAll("#tag_set_wrapper span")
+    const fors = document.querySelectorAll(".for")
+
+    for (let i = 0; i < tags.length; i++) {
+        let txt = tags[i].innerHTML
+        let title = fors[i].querySelector(".tag")
+        console.log(txt)
+        title.innerHTML = txt
+    }
+</script>
 </body>
 </html>
