@@ -71,9 +71,12 @@ def tags(request):
     elif request.method == 'POST':
         user = request.user
         user_tags = request.POST.get('tags', '')
-        user.tags.clear()
+        user_tags = user_tags.split('#')
+        user.prefer_tags.clear()
         for tag in user_tags:
-            user.tags.add(tag)
+            tag = tag.strip()
+            if tag != '': # 태그를 작성하지 않았을 경우에 저장하지 않기 위해서
+                user.prefer_tags.add(tag)
         user.save()
         
         return redirect('/tags')

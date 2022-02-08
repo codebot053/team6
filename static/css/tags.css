@@ -1,0 +1,83 @@
+body {
+    max-width: 375px;
+    height: 667px;
+    margin: auto;
+    
+}
+
+.logo {
+    font-family: 'Rock 3D', cursive;
+    font-size: 25px;
+    font-weight: bold;
+    color: black;
+    display: flex;
+    width: 100px;
+    margin-left: 20px;
+    text-align: center;
+    text-decoration: none;
+    /*background-color: #fafafa;*/
+}
+
+#nav_bar_top {
+    display: flex;
+    flex-direction: row;
+    width: 375px;
+    height: 100px;
+    justify-content: space-between;
+    align-items: center;
+    background: whitesmoke;
+}
+
+.nav_bar_right {
+    width: 150px;
+    margin-right: 10px;
+}
+
+ul {
+    list-style: none;
+    padding-left: 0px;
+}
+
+ul > li {
+    text-align: right;
+    margin: 15px 0;
+}
+
+.nav-link {
+    text-decoration: none;
+}
+
+.header_container {
+    font-size: 1.5rem;
+    margin: 20px 5px;
+}
+
+.tag_box button {
+    border: cornflowerblue solid 1px;
+    border-radius: 5px;
+    padding: 5px;
+    background-color: white;
+    margin: 5px;
+    cursor: pointer;
+    color: cornflowerblue;
+}
+
+.selected {
+    background-color: cornflowerblue !important;
+    color: white !important;
+}
+
+.hide {
+    display: none;
+}
+
+.submit {
+    padding: 10px 30px;
+    background-color: blue;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    margin: 50px 5px;
+    cursor: pointer;
+    font-size: 1.5rem;
+}
