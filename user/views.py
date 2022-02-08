@@ -65,6 +65,15 @@ def logout(request):
 @login_required
 def tags(request):
     if request.method == "GET":
-        return 
+        user = request.user
+        tag_list = list(user.prefer_tags.names())
+        return render(request, 'user/user_tag.html', {'tag_list':tag_list})
     elif request.method == 'POST':
-        return
+        user = request.user
+        user_tags = request.POST.get('tags', '')
+        user.tags.clear()
+        for tag in user_tags:
+            user.tags.add(tag)
+        user.save()
+        
+        return redirect('/tags')
