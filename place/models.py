@@ -21,7 +21,7 @@ class PlaceComment(models.Model):
 
     author = models.ForeignKey(UserModel, on_delete=models.CASCADE)
     place = models.ForeignKey(PlaceModel, on_delete=models.CASCADE)
-    rating = models.FloatField()
+    rating = models.FloatField(blank=True, null=True)
     comment = models.CharField(max_length=256)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
