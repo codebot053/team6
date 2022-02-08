@@ -30,7 +30,8 @@ def place(request):
             if user_comment:
                 recent_comment = user_comment.latest('updated_at')
                 recommend_list = item_filter(recent_comment.place.name)
-                recommend_list = list(map(lambda x :PlaceModel.objects.get(name = x), recommend_list))
+                print(recommend_list)
+                recommend_list = list(map(lambda x :PlaceModel.objects.filter(name = x).first(), recommend_list))
                 print(recommend_list)
             else:
                 recommend_list = item_filter('우도')
