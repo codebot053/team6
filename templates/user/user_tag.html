@@ -52,11 +52,15 @@
             <button>#과학박물관</button>
             <button>#역사적인 장소</button>
         </div>
-        <form id="tag_input" action="/tags/" method="post">
-            {% csrf_token %}
-            <input type="text" class="hide" id="tags" name="tags">
-            <button class="submit"> 저장 </button>
-        </form>
+        <div class="formbtns">
+            <form id="tag_input" action="/tags/" method="post">
+                {% csrf_token %}
+                <input type="text" class="hide" id="tags" name="tags">
+                <button class="submit"> 저장 </button>
+            </form>
+            <button class="homebtn" onclick="location.href='/'"> 홈으로 </button>
+        </div>
+        
         <ul class="hide" id="origin_tags">
             {% for tag in tag_list %}
             <li>#{{ tag }}</li>
