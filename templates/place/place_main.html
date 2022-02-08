@@ -134,6 +134,15 @@
         </ul>
 
     </div><!--상단 네비게이션바 끝-->
+
+    <div id="tag_set_bar"><!--유저 태그 설정-->
+        <div id="tag_set_wrapper"><!--설정한 태그를 여기서 표시-->
+            {% for i in user.prefer_tags %}
+                <span>{{ i }}</span>
+            {% endfor %}
+        </div>
+        <button id="tag_set_btn" onclick="location.href='/tags'"> 태그 추가 </button>
+    </div>
     <div class="tag_bar"><!--tag별 여행지 리스트-->
         <hr><!--임시공백-->
         <div class="tag_item">
