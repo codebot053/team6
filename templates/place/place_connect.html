@@ -1,65 +1,170 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" dir="ltr">
 <head>
-    <meta charset="utf-8"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Connect</title>
-
+    <meta charset="utf-8">
+    <title>상세페이지</title>
     <link href="https://fonts.googleapis.com/css2?family=Gamja+Flower&family=Rock+3D&display=swap" rel="stylesheet">
-
-    <script src="index.js">
-    </script>
     <style>
+        body {
+            max-width: 375px;
+            height: 667px;
+            margin: auto;
+        }
+
+        #main {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+
+
+        }
+
+        #nav_bar_top {
+            display: flex;
+            flex-direction: row;
+            width: 375px;
+            height: 100px;
+            justify-content: space-between;
+            align-items: center;
+            background: whitesmoke;
+        }
+
+        .nav_bar_right {
+            width: 150px;
+            margin-right: 10px;
+
+
+        }
+
+        ul {
+            list-style: none;
+            padding-left: 0px;
+
+        }
+
+        ul > li {
+            text-align: right;
+            margin: 15px 0;
+        }
+
+        .nav-link {
+            text-decoration: none;
+        }
+
         .logo {
             font-family: 'Rock 3D', cursive;
-            font-size: 40px;
+            font-size: 25px;
             font-weight: bold;
             color: black;
             display: flex;
-            align-items: center;
-            max-width: 200px;
-            margin: 100px auto 100px;
+            width: 100px;
+            margin-left: 20px;
             text-align: center;
+
+
             /*background-color: #fafafa;*/
         }
 
-        p {
-            font-family: 'Gamja Flower', cursive;
-            align-self: center;
-            font-size: 15px;
+        .tag_bar {
+            display: flex;
+            flex-direction: column;
+            margin: 0 10px;
+
+        }
+
+        .place_item_wrapper {
+            display: flex;
+            flex-direction: row;
+
+            overflow: scroll;
+
+
+        }
+
+        .place_item {
+            min-width: 150px;
+            margin: 0 5px;
+            position: relative;
+        }
+
+        .place_item > a > img {
+            width: 150px;
+            height: 150px;
+            border-radius: 12px;
+        }
+
+        .place_item > a > p {
+            position: absolute;
+            text-align: center;
+        {#background-color: yellow;#} width: 200px;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: white;
+
+        }
+
+        #nav_bar_bottom {
+            height: 60px;
+            width: 375px;
+            background: whitesmoke;
+            position: fixed;
+            bottom: 0;
+            overflow: hidden;
         }
     </style>
 </head>
 <body>
+<div id="main">
 
-<div class="container">
     <div id="nav_bar_top"><!--상단 네비게이션바-->
-        <img src="" alt="logo">
-        <a class="nav-link" href="/logout"> 로그아웃 </a>
-    </div>
-    <div class="logo">Travel Alone</div>
-    <div id="main">
+        <div class="logo">Travel Alone</div>
+        <ul class="nav_bar_right">
+            <li class="nav_bar_r_item">
+                <span class="nav_item">
+                    {{ user.username }} 님 안녕하세요!
+                </span>
+            </li>
+            <li class="nav_bar_r_item">
+                <a class="nav-link" href="/logout"> 로그아웃 </a>
+            </li>
+        </ul>
+
+    </div><!--상단 네비게이션바 끝-->
+    <div class="tag_bar"><!--선택한 tag 사진-->
+        <hr><!--임시공백-->
+              <p class="pic"><a href="#">{{ place.name }}</a></p>
 
 
-        <div id="tag_bar"><!--상단 tag-->
-            <p class="tag"><a href="#">#ex</a></p>
-        </div>
-        <div id="img_wrapper"><!--이미지 래퍼-->
-            <div class="img_block"><!--이미지 들어가는 칸-->
-                <img src="" alt="img">
-                <div class="tag_bar_sub"><!--이미지내부 tag-->
+        <div id="img_wrapper">
+            <div class="img_block">
+                <img src="{{ place.images }}" alt="img">
+                <div class="tag_bar_sub">
 
                 </div>
+                <p>{{ place.name }}</p>
 
                 <div class="button_sign">
                     <button type="button" class="btn_trip" onclick="location.href='https://www.tripadvisor.co.kr/Tourism-g983296-Jeju_Island-Vacations.html'">Tripadvisor에서 둘러보기</button><br>
                     <button type="button" class="btn_back" onclick="location.href='http://127.0.0.1:8000/'">뒤로가기</button>
                 </div>
-            </div>
-            <div id="nav_bar_bottom">
 
             </div>
         </div>
+        <hr><!--임시공백-->
+    </div><!--tag별 여행지 리스트 끝-->
+
+
+
+
+
+
+        <hr><!--임시공백-->
+
+
+
+    <div id="nav_bar_bottom"><!--하단 내비게이션-->
+    </div>
+</div>
 </body>
 </html>
