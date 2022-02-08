@@ -3,6 +3,7 @@
 <head>
     <meta charset="utf-8">
     <title>상세페이지</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://fonts.googleapis.com/css2?family=Gamja+Flower&family=Rock+3D&display=swap" rel="stylesheet">
     <style>
         body {
@@ -96,7 +97,8 @@
         .place_item > a > p {
             position: absolute;
             text-align: center;
-        {#background-color: yellow;#} width: 200px;
+            /* background-color: yellow;  */
+            width: 200px;
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
@@ -147,7 +149,7 @@
 
             {% for i in comment %}
                 <div class="comment_block">
-                    <p class="comment">{{ i.comment }}</p>
+                    <p class="comment">{{ i.author }} {{ i.comment }}</p>
                 </div>
             {% endfor %}
 
