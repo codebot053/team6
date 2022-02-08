@@ -2,6 +2,8 @@ from django.shortcuts import render, redirect
 from .models import PlaceModel, PlaceComment
 from django.contrib.auth.decorators import login_required
 from django.views.generic import ListView, TemplateView
+from user.models import UserModel
+from data_use import item_filter
 
 # Create your views here.
 def home(request):
@@ -13,12 +15,28 @@ def home(request):
 
 def place(request):
     if request.method == 'GET':
-        user = request.user.is_authenticated
-        if user:
+        is_user = request.user.is_authenticated
+        if is_user:
             # 이곳에 추천모델을 넣어서 추천 장소를 불러옴
+            tags = list(request.user.prefer_tags.names())
+            if tags != []:
+                print(tags)
+                prefer_tags = tags
+            else:
+                prefer_tags = []
+
+            user_comment = PlaceComment.objects.filter(author=request.user)
+            if user_comment:
+                recent_comment = user_comment.latest('updated_at')
+                recommend_list = item_filter(recent_comment.place.name)
+                print(recommend_list)
+            else:
+                recommend_list = []
+
             place_list = PlaceModel.objects.all()
+
             # 
-            return render(request, 'place/place_main.html', {'place_list':place_list})
+            return render(request, 'place/place_main.html', {'place_list':place_list, 'prefer_tags':prefer_tags, 'recommend_list':recommend_list})
         else:
             return redirect('/')
 
@@ -33,10 +51,10 @@ def delete_place(request, id):
 def detail_place(request, id):
     place_detail = PlaceModel.objects.get(id=id)
     place_comment = PlaceComment.objects.filter(place_id=id).order_by('-created_at')
-
+    print(place_detail.name)
     # 만약 세부정보페이지에서 다른 장소도 추천한다면 추천모델 필요
 
-    return render(request, 'place/place_detail.html', {'place':place_detail, 'comment':place_comment})
+    return render(request, 'place/place_connect.html', {'place':place_detail, 'comment':place_comment})
 
 
 @login_required
