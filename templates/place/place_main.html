@@ -1,96 +1,123 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-  <head>
+<head>
     <meta charset="utf-8">
     <title></title>
-      <link href="https://fonts.googleapis.com/css2?family=Gamja+Flower&family=Rock+3D&display=swap" rel="stylesheet">
-      <style>
-          body{
-              max-width: 375px;
-              height: 667px;
-              margin:auto;
-          }
-          #main{
-              display:flex;
-              flex-direction: column;
-              justify-content: center;
+    <link href="https://fonts.googleapis.com/css2?family=Gamja+Flower&family=Rock+3D&display=swap" rel="stylesheet">
+    <style>
+        body {
+            max-width: 375px;
+            height: 667px;
+            margin: auto;
+        }
+
+        #main {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
 
 
+        }
 
-          }
-          #nav_bar_top{
-              display: flex;
-              flex-direction: row;
-              width: 375px;
-              height: 100px;
-              justify-content: space-between;
-              align-items: center;
-              background:whitesmoke;
-          }
-          .nav_bar_right{
-              width: 150px;
-              margin-right: 10px;
+        #nav_bar_top {
+            display: flex;
+            flex-direction: row;
+            width: 375px;
+            height: 100px;
+            justify-content: space-between;
+            align-items: center;
+            background: whitesmoke;
+        }
 
-
-          }
-          ul{
-              list-style:none;
-              padding-left:0px;
-
-          }
-          ul>li{
-                text-align: right;
-                margin: 15px 0;
-          }
-          .nav-link{
-              text-decoration: none;
-          }
-          .logo {
-              font-family: 'Rock 3D', cursive;
-              font-size: 25px;
-              font-weight: bold;
-              color: black;
-              display: flex;
-              width: 100px;
-              margin-left: 20px;
-              text-align: center;
+        .nav_bar_right {
+            width: 150px;
+            margin-right: 10px;
 
 
+        }
+
+        ul {
+            list-style: none;
+            padding-left: 0px;
+
+        }
+
+        ul > li {
+            text-align: right;
+            margin: 15px 0;
+        }
+
+        .nav-link {
+            text-decoration: none;
+        }
+
+        .logo {
+            font-family: 'Rock 3D', cursive;
+            font-size: 25px;
+            font-weight: bold;
+            color: black;
+            display: flex;
+            width: 100px;
+            margin-left: 20px;
+            text-align: center;
 
 
             /*background-color: #fafafa;*/
         }
-          .tag_bar{
-              display: flex;
-              flex-direction: column;
-              margin : 0 10px;
 
-          }
-          .place_item_wrapper{
-              display: flex;
-              flex-direction: row;
-              width: 375px;
-              overflow: scroll;
+        .tag_bar {
+            display: flex;
+            flex-direction: column;
+            margin: 0 10px;
 
-          }
-          .place_item{
-              min-width: 100px;
+        }
 
-          }
-          #nav_bar_bottom{
-              height: 60px;
-              width: 375px;
-              background: whitesmoke;
-              position: fixed;
-              bottom: 0;
-              overflow: hidden;
-          }
-      </style>
-  </head>
-  <body>
-    <div id="main">
+        .place_item_wrapper {
+            display: flex;
+            flex-direction: row;
 
-      <div id="nav_bar_top"><!--상단 네비게이션바-->
+            overflow: scroll;
+
+
+        }
+
+        .place_item {
+            min-width: 150px;
+            margin: 0 5px;
+            position: relative;
+        }
+
+        .place_item > a > img {
+            width: 150px;
+            height: 150px;
+            border-radius: 12px;
+        }
+
+        .place_item > a > p {
+            position: absolute;
+            text-align: center;
+        {#background-color: yellow;#} width: 200px;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: white;
+
+        }
+
+        #nav_bar_bottom {
+            height: 60px;
+            width: 375px;
+            background: whitesmoke;
+            position: fixed;
+            bottom: 0;
+            overflow: hidden;
+        }
+    </style>
+</head>
+<body>
+<div id="main">
+
+    <div id="nav_bar_top"><!--상단 네비게이션바-->
         <div class="logo">Travel Alone</div>
         <ul class="nav_bar_right">
             <li class="nav_bar_r_item">
@@ -102,32 +129,68 @@
                 <a class="nav-link" href="/logout"> 로그아웃 </a>
             </li>
         </ul>
-      </div><!--상단 네비게이션바 끝-->
-
-        <div class="tag_bar"><!--tag에 해당하는 여행지-->
-            <hr><!--임시공백-->
-            <div class="tag_item">
-                <p class="tag">#산</p>
-            </div>
-
-            <div class="place_item_wrapper">
-                {% for i in popular_list %}
-                <div class="place_item"><!--이미지 들어가는 칸-->
-                    <img src="{{ i.images }}" alt="img">
-                    <p>{{ i.name }}</p>
-                </div>
-                {% endfor %}
-            </div>
-
-            <hr><!--임시공백-->
-
 
     </div><!--상단 네비게이션바 끝-->
+    <div class="tag_bar"><!--tag별 여행지 리스트-->
+        <hr><!--임시공백-->
+        <div class="tag_item">
+            <p class="tag">#인기</p>
+        </div>
+
+        <div class="place_item_wrapper">
+            {% for i in popular_list %}
+                <div class="place_item"><!--이미지 들어가는 칸-->
+                    <a href="/info/{{ i.id }}">
+                        <img src="{{ i.images }}" alt="img">
+                        <p>{{ i.name }}</p>
+                    </a>
+                </div>
+            {% endfor %}
+        </div>
+        <hr><!--임시공백-->
+    </div><!--tag별 여행지 리스트 끝-->
+
+    <div class="tag_bar"><!--tag별 여행지 리스트-->
+        <hr><!--임시공백-->
+        <div class="tag_item">
+            <p class="tag">#인기</p>
+        </div>
+
+        <div class="place_item_wrapper">
+            {% for i in popular_list %}
+                <div class="place_item"><!--이미지 들어가는 칸-->
+                    <a href="/info/{{ i.id }}">
+                        <img src="{{ i.images }}" alt="img">
+                        <p>{{ i.name }}</p>
+                    </a>
+                </div>
+            {% endfor %}
+        </div>
+        <hr><!--임시공백-->
+    </div><!--tag별 여행지 리스트 끝-->
+
+    <div class="tag_bar"><!--tag별 여행지 리스트-->
+        <hr><!--임시공백-->
+        <div class="tag_item">
+            <p class="tag">#인기</p>
+        </div>
+
+        <div class="place_item_wrapper">
+            {% for i in popular_list %}
+                <div class="place_item"><!--이미지 들어가는 칸-->
+                    <a href="/info/{{ i.id }}">
+                        <img src="{{ i.images }}" alt="img">
+                        <p>{{ i.name }}</p>
+                    </a>
+                </div>
+            {% endfor %}
+        </div>
+        <hr><!--임시공백-->
+    </div><!--tag별 여행지 리스트 끝-->
 
 
-    <div id="nav_bar_bottom">
-
+    <div id="nav_bar_bottom"><!--하단 내비게이션-->
     </div>
-    </div>
-  </body>
+</div>
+</body>
 </html>
