@@ -65,6 +65,18 @@ def logout(request):
 @login_required
 def tags(request):
     if request.method == "GET":
-        return 
+        user = request.user
+        tag_list = list(user.prefer_tags.names())
+        return render(request, 'user/user_tag.html', {'tag_list':tag_list})
     elif request.method == 'POST':
-        return
+        user = request.user
+        user_tags = request.POST.get('tags', '')
+        user_tags = user_tags.split('#')
+        user.prefer_tags.clear()
+        for tag in user_tags:
+            tag = tag.strip()
+            if tag != '': # 태그를 작성하지 않았을 경우에 저장하지 않기 위해서
+                user.prefer_tags.add(tag)
+        user.save()
+        
+        return redirect('/tags')
