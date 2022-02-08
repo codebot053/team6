@@ -133,23 +133,32 @@
     </div><!--상단 네비게이션바 끝-->
     <div class="tag_bar"><!--선택한 tag 사진-->
         <hr><!--임시공백-->
-              <p class="pic"><a href="#">{{ place.name }}</a></p>
+        <p class="pic">{{ place.name }}</p>
 
 
-        <div id="img_wrapper">
+        <div id="place_item_wrapper">
             <div class="img_block">
                 <img src="{{ place.images }}" alt="img">
                 <div class="tag_bar_sub">
 
                 </div>
-                <p>{{ place.name }}</p>
-
-                <div class="button_sign">
-                    <button type="button" class="btn_trip" onclick="location.href='https://www.tripadvisor.co.kr/Tourism-g983296-Jeju_Island-Vacations.html'">Tripadvisor에서 둘러보기</button><br>
-                    <button type="button" class="btn_back" onclick="location.href='http://127.0.0.1:8000/'">뒤로가기</button>
-                </div>
-
             </div>
+
+
+            {% for i in comment %}
+                <div class="comment_block">
+                    <p class="comment">{{ i.comment }}</p>
+                </div>
+            {% endfor %}
+
+
+
+            <div class="button_sign">
+                <button type="button" class="btn_trip" onclick="location.href='https://www.tripadvisor.co.kr/Tourism-g983296-Jeju_Island-Vacations.html'">Tripadvisor에서 둘러보기</button><br>
+                <button type="button" class="btn_back" onclick="location.href='http://127.0.0.1:8000/'">뒤로가기</button>
+            </div>
+
+
         </div>
         <hr><!--임시공백-->
     </div><!--tag별 여행지 리스트 끝-->
@@ -159,7 +168,7 @@
 
 
 
-        <hr><!--임시공백-->
+    <hr><!--임시공백-->
 
 
 
