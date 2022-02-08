@@ -23,10 +23,11 @@ def updatetags(id, tag_list):
         PM.tags.add(tag)
     PM.save()
 
-placeinfo = open("place_with_images.csv", "r", encoding="utf-8-sig")
-reader = csv.reader(placeinfo)
+
 
 if __name__=='__main__':
+    placeinfo = open("place_with_images.csv", "r", encoding="utf-8-sig")
+    reader = csv.reader(placeinfo)
     for line in reader:
         id = int(line[1])+10
         name = line[2].lstrip()
