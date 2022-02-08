@@ -20,8 +20,9 @@ def place(request):
             # 이곳에 추천모델을 넣어서 추천 장소를 불러옴
             tags = list(request.user.prefer_tags.names())
             if tags != []:
-                print(tags)
-                prefer_tags = tags
+                # print(tags)
+                prefer_tags = list(map(lambda x:list(PlaceModel.objects.filter(tags__name = x)), tags))
+                print(prefer_tags)
             else:
                 prefer_tags = []
 
@@ -29,14 +30,17 @@ def place(request):
             if user_comment:
                 recent_comment = user_comment.latest('updated_at')
                 recommend_list = item_filter(recent_comment.place.name)
+                recommend_list = list(map(lambda x :PlaceModel.objects.get(name = x), recommend_list))
                 print(recommend_list)
             else:
-                recommend_list = []
+                recommend_list = item_filter('우도')
+                recommend_list = list(map(lambda x :PlaceModel.objects.get(name = x), recommend_list))
+                print(recommend_list)
 
             place_list = PlaceModel.objects.all()
-
+            popular_list = list(place_list)[:10]
             # 
-            return render(request, 'place/place_main.html', {'place_list':place_list, 'prefer_tags':prefer_tags, 'recommend_list':recommend_list})
+            return render(request, 'place/place_main.html', {'place_list':place_list, 'prefer_tags':prefer_tags, 'recommend_list':recommend_list, 'popular_list':popular_list})
         else:
             return redirect('/')
 
