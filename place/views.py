@@ -72,7 +72,7 @@ def write_comment(request, id):
 
         PC = PlaceComment()
         PC.comment = comment
-        PC.rating = rating
+        # PC.rating = rating
         PC.place = current_place
         PC.author = request.user
         PC.save()

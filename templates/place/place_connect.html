@@ -151,26 +151,15 @@
                 <div class="comment_block">
                     <p class="comment">{{ i.author }}: {{ i.comment }}</p>
                 </div>
-                {% block content %}
-                    <div class="container">
-
-                        {% for i in comment %}
-                            {{ i.author }}: {{ i.username }}
-                            <br>
-                        {% endfor %}
-
-                        <br><br>
+                
+            {% endfor %}
+            <br>
                         댓글 달기 :
-                        <form method="POST">
+                        <form action="/info/comment/{{ place.id }}" method="POST">
                             {% csrf_token %}
                             <input name="comment" type="text" value="">
                             <input class="btn btn-primary" type="submit" value="저장">
                         </form>
-
-                    </div>
-                {% endblock %}
-            {% endfor %}
-
 
 
             <div class="button_sign">
