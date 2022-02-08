@@ -7,13 +7,14 @@
       <style>
           body{
               max-width: 375px;
+              height: 667px;
               margin:auto;
           }
           #main{
               display:flex;
               flex-direction: column;
               justify-content: center;
-              
+
 
 
           }
@@ -21,22 +22,38 @@
               display: flex;
               flex-direction: row;
               width: 375px;
+              height: 100px;
               justify-content: space-between;
               align-items: center;
+              background:whitesmoke;
+          }
+          .nav_bar_right{
+              width: 150px;
+              margin-right: 10px;
+
+
           }
           ul{
               list-style:none;
               padding-left:0px;
+
+          }
+          ul>li{
+                text-align: right;
+                margin: 15px 0;
           }
           .nav-link{
               text-decoration: none;
           }
           .logo {
-            font-family: 'Rock 3D', cursive;
-            font-size: 40px;
-            font-weight: bold;
-            color: black;
-            display: flex;
+              font-family: 'Rock 3D', cursive;
+              font-size: 25px;
+              font-weight: bold;
+              color: black;
+              display: flex;
+              width: 100px;
+              margin-left: 20px;
+              text-align: center;
 
 
 
@@ -46,12 +63,27 @@
           .tag_bar{
               display: flex;
               flex-direction: column;
-
+              margin : 0 10px;
 
           }
           .place_item_wrapper{
               display: flex;
               flex-direction: row;
+              width: 375px;
+              overflow: scroll;
+
+          }
+          .place_item{
+              min-width: 100px;
+
+          }
+          #nav_bar_bottom{
+              height: 60px;
+              width: 375px;
+              background: whitesmoke;
+              position: fixed;
+              bottom: 0;
+              overflow: hidden;
           }
       </style>
   </head>
@@ -77,53 +109,21 @@
             <div class="tag_item">
                 <p class="tag">#산</p>
             </div>
+
             <div class="place_item_wrapper">
+                {% for i,x in enumerate() %}
                 <div class="place_item"><!--이미지 들어가는 칸-->
                     <img src="" alt="img">
-                    <p>비밀의 숲</p>
+                    <p>{{ i.name }}</p>
                 </div>
-                <div class="place_item"><!--이미지 들어가는 칸-->
-                    <img src="" alt="img">
-                    <p>비밀의 숲</p>
-                </div>
-                <div class="place_item"><!--이미지 들어가는 칸-->
-                    <img src="" alt="img">
-                    <p>비밀의 숲</p>
-                </div>
-                <div class="place_item"><!--이미지 들어가는 칸-->
-                    <img src="" alt="img">
-                    <p>비밀의 숲</p>
-                </div>
-                <div class="place_item"><!--이미지 들어가는 칸-->
-                    <img src="" alt="img">
-                    <p>비밀의 숲</p>
-                </div>
+                {% endfor %}
             </div>
+
             <hr><!--임시공백-->
 
 
     </div><!--상단 네비게이션바 끝-->
-    <div class="tag_bar"><!--tag에 해당하는 여행지-->
-        <hr><!--임시공백-->
-        <div class="tag_item">
-            <p class="tag">#바다</p>
-        </div>
-        <div class="place_item_wrapper">
-            <div class="place_item"><!--이미지 들어가는 칸-->
-                <img src="" alt="img">
-                <p>비밀의 숲</p>
-            </div>
-            <div class="place_item"><!--이미지 들어가는 칸-->
-                <img src="" alt="img">
-                <p>비밀의 숲</p>
-            </div>
-            <div class="place_item"><!--이미지 들어가는 칸-->
-                <img src="" alt="img">
-                <p>비밀의 숲</p>
-            </div>
-        </div>
-        <hr><!--임시공백-->
-    </div>
+
 
     <div id="nav_bar_bottom">
 

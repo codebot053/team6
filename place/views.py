@@ -38,9 +38,11 @@ def place(request):
                 print(recommend_list)
 
             place_list = PlaceModel.objects.all()
+
             popular_list = list(place_list)[:10]
             # 
             return render(request, 'place/place_main.html', {'place_list':place_list, 'prefer_tags':prefer_tags, 'recommend_list':recommend_list, 'popular_list':popular_list})
+
         else:
             return redirect('/')
 
