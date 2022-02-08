@@ -41,7 +41,7 @@ def place(request):
 
             popular_list = list(place_list)[:10]
             # 
-            return render(request, 'place/place_main.html', {'place_list':place_list, 'prefer_tags':prefer_tags, 'recommend_list':recommend_list, 'popular_list':popular_list})
+            return render(request, 'place/place_main.html', {'place_list':place_list, 'prefer_tags':prefer_tags, 'recommend_list':recommend_list, 'popular_list':popular_list, 'tags':tags})
 
         else:
             return redirect('/')
