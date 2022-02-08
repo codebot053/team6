@@ -1,0 +1,82 @@
+.container {
+    width: 350px;
+    height: 600px;
+    margin: 100px auto;
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    flex-wrap: wrap;
+
+    /*background-color: #00366B;*/
+}
+.logo {
+    font-family: 'Rock 3D', cursive;
+    font-size: 30px;
+    font-weight: bold;
+    color: black;
+    display: block;
+    align-items: center;
+    max-width: 200px;
+    margin: 90px auto 50px;
+    text-align: center;
+    background-color: #fafafa;
+}
+.input_sign_up {
+    width: 200px;
+    height: 40px;
+    margin: 5px auto;
+    padding: 0 5px;
+    display: block;
+    background-color: darkgrey;
+    border: 1px solid #DBDBDB;
+    border-radius: 3px;
+    font-size: 12px;
+}
+.input_sign_up::placeholder {
+    font-size: 14px;
+    color: black;
+}
+.input_sign_up:focus {
+    border: 1px solid #8a8a8a;
+    outline: none;
+}
+#btn_sign_up {
+    width: 80px;
+    height: 30px;
+    margin: 20px auto 0px;
+    display: block;
+    background-color: #00366B;
+    border: none;
+    border-radius: 3px;
+    color: white;
+    font-size: 14px;
+    font-weight: 600;
+}
+a{
+    text-decoration-line: none;
+}
+#btn_sign_up:disabled {
+    background-color: darkgrey;
+}
+#btn_sign_up:disabled:hover {
+    cursor: default;
+}
+#btn_sign_up:enabled:hover {
+    cursor: pointer;
+}
+#btn_sign_up:focus {
+    outline: none;
+}
+a {
+    cursor: default;
+}
+.ReturnToMain {
+    color : #00366B;
+    align-self: center;
+    font-size: 15px;
+    margin-top: 10px;
+    font-weight: bold;
+}
+.ReturnToMain:hover {
+    cursor: pointer;
+}

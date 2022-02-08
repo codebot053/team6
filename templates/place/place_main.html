@@ -111,9 +111,9 @@
             </div>
 
             <div class="place_item_wrapper">
-                {% for i,x in enumerate() %}
+                {% for i in popular_list %}
                 <div class="place_item"><!--이미지 들어가는 칸-->
-                    <img src="" alt="img">
+                    <img src="{{ i.images }}" alt="img">
                     <p>{{ i.name }}</p>
                 </div>
                 {% endfor %}

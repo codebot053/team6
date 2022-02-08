@@ -1,0 +1,58 @@
+.container {
+    width: 350px;
+    height: 600px;
+    margin: 100px auto;
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    flex-wrap: wrap;
+    /*background-color: #00366B;*/
+}
+.logo {
+    font-family: 'Rock 3D', cursive;
+    font-size: 40px;
+    font-weight: bold;
+    color: black;
+    display: flex;
+    align-items: center;
+    max-width: 200px;
+    margin: 100px auto 100px;
+    text-align: center;
+    /*background-color: #fafafa;*/
+}
+p{
+    font-family: 'Gamja Flower', cursive;
+    align-self: center;
+    font-size: 15px;
+}
+.button_sign{
+    width: 200px;
+    position: center;
+    display: flex;
+    align-content: center;
+    /*background-color: #fafafa;*/
+}
+.btn_sign_in{
+    font-family: 'Gamja Flower', cursive;
+    width: 80px;
+    height: 30px;
+    margin: 80px 10px;
+    background-color: darkgray;
+    border: none;
+    border-radius: 3px;
+    color: black;
+    font-size: 14px;
+    font-weight: 600;
+}
+.btn_sign_up{
+    font-family: 'Gamja Flower', cursive;
+    width: 80px;
+    height: 30px;
+    margin: 80px 10px;
+    background-color: darkgray;
+    border: none;
+    border-radius: 3px;
+    color: black;
+    font-size: 14px;
+    font-weight: 600;
+}

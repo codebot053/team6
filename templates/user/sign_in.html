@@ -1,45 +1,35 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Sign_in</title>
-    <link
-            href="./common.css"
-            rel="stylesheet" type="text/css"
-    />
-    <link
-            href="./signin.css"
-            rel="stylesheet" type="text/css"
-    />
-    <link href="https://fonts.googleapis.com/css2?family=Gamja+Flower&family=Rock+3D&display=swap" rel="stylesheet">
 
-    <script src="./sign.js">
-    </script>
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>로그인 페이지</title>
+  <link href="/static/css/common.css" rel="stylesheet" type="text/css" />
+  <link href="/static/css/sign_in.css" rel="stylesheet" type="text/css" />
+  <link href="https://fonts.googleapis.com/css2?family=Gamja+Flower&family=Rock+3D&display=swap" rel="stylesheet">
 
-  </head>
-  <body>
+</head>
+
+<body>
   <div class="container">
-      <div class="logo">Travel Alone</div>
-      <form class="form-area" method="post" action="/sign-in/">
-          {% csrf_token %}
-          <div class="form-group mt-2 mb-2">
-              <label for="username">이름</label>
-              <input type="text" class="form-control" id="username" name="username">
-          </div>
-          <div class="form-group mt-2 mb-2">
-              <label for="password">비밀번호</label>
-              <input type="password" class="form-control" id="password" name="password">
-          </div>
-{#          <input type="text" class="input_sign_in" name="userID" id="userID" placeholder="ID">#}
-{#          <input type="password" class="input_sign_in" name="userPW" id="userPW" placeholder="PW">#}
-
-              <button type="submit" id="btn_sign_in" >Sign in</button>
-
-          <span class="button_forgot" onclick="location.href='/sign-up'">비밀번호를 잊으셨나요?</span>
-      </form>
+    <div class="logo">Travel Alone</div>
+    <form class="form-area" method="post" action="/sign-in/">
+      {% csrf_token %}
+      <div class="form-group mt-2 mb-2">
+        <label for="username">이름</label><br>
+        <input type="text" class="form-control input_sign_in" id="username" name="username">
+      </div>
+      <div class="form-group mt-2 mb-2">
+        <label for="password">비밀번호</label><br>
+        <input type="password" class="form-control input_sign_in" id="password" name="password">
+      </div>
+      <button type="submit" id="btn_sign_in">Sign in</button>
+      <span class="button_forgot" onclick="location.href='/sign-up'">비밀번호를 잊으셨나요?</span>
+    </form>
   </div>
-    <script src="js/sign_in.js"></script>
-  </body>
+  <!-- <script src="js/sign_in.js"></script> -->
+</body>
+
 </html>
