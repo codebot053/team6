@@ -31,7 +31,7 @@
         }
 
         .nav_bar_right {
-            width: 150px;
+            width: 180px;
             margin-right: 10px;
 
 
@@ -79,8 +79,6 @@
             overflow-y: hidden;
 
             overflow-x: scroll;
-
-
         }
 
         .place_item {
@@ -106,6 +104,23 @@
             color: white;
 
         }
+        
+        #tag_set_bar {
+            margin: 0px 10px;
+        }
+        #tag_set_wrapper p{
+            font-weight: bold;
+        }
+        #tag_set_bar button {
+            background-color: whitesmoke;
+            border-radius: 5px;
+            width: 80px;
+            height: 30px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+
 
         #nav_bar_bottom {
             height: 60px;
@@ -114,6 +129,15 @@
             position: fixed;
             bottom: 0;
             overflow: hidden;
+        }
+
+        .user_tag {
+            display: inline-block;
+        }
+
+        .tag {
+            font-size: 1.25rem;
+            font-weight: bold;
         }
     </style>
 </head>
@@ -137,9 +161,11 @@
 
     <div id="tag_set_bar"><!--유저 태그 설정-->
         <div id="tag_set_wrapper"><!--설정한 태그를 여기서 표시-->
+            <p>{{ user.username }}님의 태그</p>
             {% for i in tags %}
-                <span>#{{ i }}</span>
+                <span class="user_tag">#{{ i }}</span>
             {% endfor %}
+            <br><br>
         </div>
         <button id="tag_set_btn" onclick="location.href='/tags'"> 태그 추가 </button>
     </div>

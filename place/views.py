@@ -57,11 +57,12 @@ def delete_place(request, id):
 @login_required
 def detail_place(request, id):
     place_detail = PlaceModel.objects.get(id=id)
+    place_tags = place_detail.tags.all()
     place_comment = PlaceComment.objects.filter(place_id=id).order_by('-created_at')
     print(place_detail.name)
     # 만약 세부정보페이지에서 다른 장소도 추천한다면 추천모델 필요
 
-    return render(request, 'place/place_connect.html', {'place':place_detail, 'comment':place_comment})
+    return render(request, 'place/place_connect.html', {'place':place_detail, 'comment':place_comment, 'place_tags':place_tags})
 
 
 @login_required
