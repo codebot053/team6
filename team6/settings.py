@@ -148,7 +148,7 @@ AWS_STORAGE_BUCKET_NAME = secrets['AWS']['STORAGE_BUCKET_NAME']
 AWS_DEFAULT_ACL = 'public-read' # 올린 파일을 누구나 읽을 수 있게 지정합니다!
 
 AWS_CLOUDFRONT_DOMAIN = 'd2gliyt1dsoeov.cloudfront.net'
-AWS_S3_CUSTOM_DOMAIN = 'grolsawsbucket.s3.ap-northeast-2.amazonaws.com'
+AWS_S3_CUSTOM_DOMAIN = '{}.s3.ap-northeast-2.amazonaws.com'.format(AWS_STORAGE_BUCKET_NAME)
 
 DEFAULT_FILE_STORAGE = 'team6.storage.S3MediaStorage'
 STATICFILES_STORAGE = 'team6.storage.S3StaticStorage'
