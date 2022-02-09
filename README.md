@@ -41,3 +41,8 @@ Common : Github, Slack, Notion
 (2) Data Preprocessing
 
 (3) Model & Algorithms
+
+🎥 시연 영상 링크
+유튜브 : https://www.youtube.com/watch?v=7a24BpxkFO0
+🎥 시연 영상 링크
+🎥 시연 영상 링크
