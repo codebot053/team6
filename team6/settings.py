@@ -131,23 +131,32 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
 
-STATIC_URL = '/static/'
-STATICFILES_DIRS = [
-    BASE_DIR / 'static',
-]
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 
+AUTH_USER_MODEL = 'user.UserModel'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
+CDN_ENABLED = True
 
-# DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
-# STATICFILES_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
-
+AWS_S3_REGION_NAME = 'ap-northeast-2'
+AWS_S3_SIGNATURE_VERSION = 's3v4'
 AWS_ACCESS_KEY_ID = secrets['AWS']['ACCESS_KEY_ID']
 AWS_SECRET_ACCESS_KEY = secrets['AWS']['SECRET_ACCESS_KEY']
 AWS_STORAGE_BUCKET_NAME = secrets['AWS']['STORAGE_BUCKET_NAME']
 AWS_DEFAULT_ACL = 'public-read' # 올린 파일을 누구나 읽을 수 있게 지정합니다!
 
-AUTH_USER_MODEL = 'user.UserModel'
+AWS_CLOUDFRONT_DOMAIN = 'd2gliyt1dsoeov.cloudfront.net'
+AWS_S3_CUSTOM_DOMAIN = 'grolsawsbucket.s3.ap-northeast-2.amazonaws.com'
+
+DEFAULT_FILE_STORAGE = 'team6.storage.S3MediaStorage'
+STATICFILES_STORAGE = 'team6.storage.S3StaticStorage'
+STATICFILES_LOCATION = 'static'
+STATIC_ROOT = '/static/'
+
+# STATIC_URL = '/static/'
+STATICFILES_DIRS = [
+    BASE_DIR / 'static',
+]
+STATIC_URL = '//%s/%s/' % (AWS_CLOUDFRONT_DOMAIN, STATICFILES_LOCATION)

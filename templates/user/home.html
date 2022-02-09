@@ -1,3 +1,4 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -5,8 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>메인 페이지</title>
-    <link href="/static/css/common.css" rel="stylesheet" type="text/css"/>
-    <link href="/static/css/index.css" rel="stylesheet" type="text/css" />
+    <link href="{% static 'css/common.css' %}" rel="stylesheet" type="text/css"/>
+    <link href="{% static 'css/index.css' %}" rel="stylesheet" type="text/css" />
     <link href="https://fonts.googleapis.com/css2?family=Gamja+Flower&family=Rock+3D&display=swap" rel="stylesheet">
 
     <script src="index.js">

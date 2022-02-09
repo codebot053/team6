@@ -1,3 +1,4 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
 <head>
@@ -5,7 +6,7 @@
     <title>메인페이지</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://fonts.googleapis.com/css2?family=Gamja+Flower&family=Rock+3D&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="/static/css/main.css">
+    <link rel="stylesheet" href="{% static 'css/main.css' %}">
 </head>
 <body>
 <div id="main">
@@ -45,7 +46,7 @@
             {% for i in recommend_list %}
                 <div class="place_item"><!--이미지 들어가는 칸-->
                     <a href="/info/{{ i.id }}">
-                        <img src="{{ i.images }}" alt="img" onerror="this.src='/static/white.png'">
+                        <img src="{{ i.images }}" alt="img" onerror="this.src='{% static 'white.png' %}'">
                         <p>{{ i.name }}</p>
                     </a>
                 </div>
@@ -64,7 +65,7 @@
             {% for i in p_tag %}
                 <div class="place_item"><!--이미지 들어가는 칸-->
                     <a href="/info/{{ i.id }}">
-                        <img src="{{ i.images }}" alt="img" onerror="this.src='/static/white.png'">
+                        <img src="{{ i.images }}" alt="img" onerror="this.src='{% static 'white.png' %}'">
                         <p>{{ i.name }}</p>
                     </a>
                 </div>
@@ -85,7 +86,7 @@
             {% for i in popular_list %}
                 <div class="place_item"><!--이미지 들어가는 칸-->
                     <a href="/info/{{ i.id }}">
-                        <img src="{{ i.images }}" alt="img" onerror="this.src='/static/white.png'">
+                        <img src="{{ i.images }}" alt="img" onerror="this.src='{% static 'white.png' %}'">
                         <p>{{ i.name }}</p>
                     </a>
                 </div>

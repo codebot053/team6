@@ -1,3 +1,4 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 
@@ -7,7 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>선호 태그 설정 페이지</title>
     <link href="https://fonts.googleapis.com/css2?family=Gamja+Flower&family=Rock+3D&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="/static/css/tags.css">
+    <link rel="stylesheet" href="{% static 'css/tags.css' %}">
     
 </head>
 
@@ -67,7 +68,7 @@
             {% endfor %}
         </ul>
     </div>
-    <script src="/static/js/tags.js"></script>
+    <script src="{% static 'js/tags.js' %}"></script>
 
 </body>
 
