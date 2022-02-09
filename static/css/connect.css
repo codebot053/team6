@@ -1,0 +1,191 @@
+body {
+    max-width: 375px;
+    height: 667px;
+    margin: auto;
+}
+
+#main {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+
+}
+
+#nav_bar_top {
+    display: flex;
+    flex-direction: row;
+    width: 375px;
+    height: 100px;
+    justify-content: space-between;
+    align-items: center;
+    background: whitesmoke;
+}
+
+.nav_bar_right {
+    width: 180px;
+    margin-right: 10px;
+
+
+}
+
+ul {
+    list-style: none;
+    padding-left: 0px;
+
+}
+
+ul > li {
+    text-align: right;
+    margin: 15px 0;
+}
+
+.nav-link {
+    text-decoration: none;
+}
+
+.logo {
+    font-family: 'Rock 3D', cursive;
+    font-size: 25px;
+    font-weight: bold;
+    color: black;
+    display: flex;
+    width: 100px;
+    margin-left: 20px;
+    text-align: center;
+
+
+    /*background-color: #fafafa;*/
+}
+
+.tag_bar {
+    display: flex;
+    flex-direction: column;
+    margin: 10 0px;
+
+
+}
+
+.place_item_wrapper {
+    display: flex;
+    flex-direction: row;
+
+    overflow: scroll;
+    max-width: 100%;
+
+
+}
+
+.place_item {
+    min-width: 150px;
+    margin: 0 5px;
+    position: relative;
+}
+
+.place_item > a > img {
+    width: 150px;
+    height: 150px;
+    border-radius: 12px;
+}
+
+.place_item > a > p {
+    position: absolute;
+    text-align: center;
+    /* background-color: yellow;  */
+    width: 200px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+
+}
+
+#nav_bar_bottom {
+    height: 60px;
+    width: 375px;
+    background: whitesmoke;
+    position: fixed;
+    bottom: 0;
+    overflow: hidden;
+}
+
+.img_block img {
+    max-width: 100%;
+}
+.tag_bar_sub {
+    margin: 5px;
+}
+
+.title_bar {
+    border: 1px solid whitesmoke;
+}
+.pic-name {
+    margin: 10px;
+}
+
+.replys{
+    border: 1px solid whitesmoke;
+    margin-bottom: 5px;
+}
+h3{
+    margin: 5px;
+}
+h4{
+    margin: 5px;
+}
+.writeform{
+    vertical-align: middle;
+}
+#comment {
+    width: 230px;
+    height: 20px;
+    margin: 0;
+}
+.formbtn {
+    display: inline-block;
+    vertical-align: middle;
+    background-color: white;
+    border-radius: 5px;
+    width: 60px;
+    height: 30px;
+    cursor: pointer;
+    font-weight: bold;
+}
+.button_sign{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 20px;
+    font-weight: bold;
+}
+.btn_trip{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    background-color: white;
+    border-radius: 5px;
+    width: 250px;
+    height: 35px;
+    cursor: pointer;
+    font-weight: bold;
+
+}
+.btn_back{
+    vertical-align: middle;
+    background-color: white;
+    border-radius: 5px;
+    width: 100px;
+    height: 35px;
+    cursor: pointer;
+    font-weight: bold;
+}
+.trip_logo{
+    width: 100px;
+    display: block;
+    margin-top: 5px;
+}
+.btn_trip span {
+    display: block;
+}
