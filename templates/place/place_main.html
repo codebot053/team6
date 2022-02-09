@@ -54,25 +54,6 @@
         <hr><!--임시공백-->
     </div><!--tag별 여행지 리스트 끝-->
 
-    <div class="tag_bar"><!--tag별 여행지 리스트-->
-        <hr><!--임시공백-->
-        <div class="tag_item">
-            <p class="tag">#인기</p>
-        </div>
-
-        <div class="place_item_wrapper">
-            {% for i in popular_list %}
-                <div class="place_item"><!--이미지 들어가는 칸-->
-                    <a href="/info/{{ i.id }}">
-                        <img src="{{ i.images }}" alt="img" onerror="this.src='/static/white.png'">
-                        <p>{{ i.name }}</p>
-                    </a>
-                </div>
-            {% endfor %}
-        </div>
-        <hr><!--임시공백-->
-    </div><!--tag별 여행지 리스트 끝-->
-
     {% for p_tag in prefer_tags %}
     <div class="tag_bar for"><!--tag별 여행지 리스트-->
         <hr><!--임시공백-->
@@ -92,6 +73,26 @@
         <hr><!--임시공백-->
     </div>
     {% endfor %}
+
+    
+    <div class="tag_bar"><!--tag별 여행지 리스트-->
+        <hr><!--임시공백-->
+        <div class="tag_item">
+            <p class="tag">#인기</p>
+        </div>
+
+        <div class="place_item_wrapper">
+            {% for i in popular_list %}
+                <div class="place_item"><!--이미지 들어가는 칸-->
+                    <a href="/info/{{ i.id }}">
+                        <img src="{{ i.images }}" alt="img" onerror="this.src='/static/white.png'">
+                        <p>{{ i.name }}</p>
+                    </a>
+                </div>
+            {% endfor %}
+        </div>
+        <hr><!--임시공백-->
+    </div><!--tag별 여행지 리스트 끝-->
 
 </div>
 <script>
