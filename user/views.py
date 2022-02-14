@@ -61,6 +61,7 @@ def sign_in_view(request):
 def logout(request):
     auth.logout(request)
     return redirect('/')
+    
 
 @login_required
 def tags(request):
